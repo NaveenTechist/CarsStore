@@ -1,0 +1,12 @@
+footer {
+    background-color: #232F3E;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    color: rgb(213, 211, 211);
+}
