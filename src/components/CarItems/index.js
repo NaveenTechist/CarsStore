@@ -1,10 +1,11 @@
 import { FaStar } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 import './index.css';
 import CommonContext from '../../CommonContext/common';
 
 const CarItems = props =>{
 const { each } = props;
-const { imgUrl, name, price } = each;
+const { imgUrl, name, price, id } = each;
 return( 
  <CommonContext.Consumer>
     {value => { 
@@ -13,7 +14,7 @@ return(
             addCartListItem(each);
         }   
     return( 
-    <li className="li-items">
+    <Link to={`/cars-data/${id}`} className="li-items">
         <div>
             <img src={imgUrl} alt={name} className="car-image" />
             <div className="car-details">
@@ -27,7 +28,7 @@ return(
                 <button type="button" className="car-button" onClick={onClickAddCart} >Add Cart</button>
             </div>
         </div>
-    </li>
+    </Link>
     )
     }}
     </CommonContext.Consumer>

@@ -8,6 +8,7 @@ import ProtectedRoute from './ProtectedRoute';
 import CommonContext from './CommonContext/common';
 import NotFound from './components/NotFound';
 import {useState} from 'react';
+import ItemDetails from './components/ItemsDetails';
 import './App.css';
 
 
@@ -29,6 +30,7 @@ const App = () =>  {
       <Route exact path="/login" element={ <Login /> } />
       <Route exact path="/cart" element={ <ProtectedRoute>  <CartComponent /> </ProtectedRoute> } />
       <Route exact path="/services" element={ <ProtectedRoute> <ServicesRoute /> </ProtectedRoute> } />
+            <Route exact path="/cars-data/:id" element={ <ProtectedRoute> <ItemDetails /> </ProtectedRoute> } />
       <Route exact path="/register" element={  <Register />  } />
       <Route path="*" element={ <ProtectedRoute>  <NotFound />  </ProtectedRoute> } />
     </Routes>

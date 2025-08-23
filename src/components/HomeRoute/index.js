@@ -147,7 +147,7 @@ class HomeRoute extends Component {
                     ))}
                 </Slider>
             </div>
-      <Element name="newCars" className="h-screen flex items-center justify-center bg-yellow-100  home-content" >
+      <Element name="newCars" className="newCars h-screen flex items-center justify-center bg-yellow-100  home-content" >
         <h1 className="home-heading">Your Dream Car, Your Lifestyle</h1>
         <p className="home-description">Explore our collection of luxury and sports cars.</p>
         <p className="home-description">Find your dream car today!</p>

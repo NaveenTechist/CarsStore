@@ -117,3 +117,8 @@
 .no-results-image {
     margin-bottom: -70px;
 }
+.newCars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
