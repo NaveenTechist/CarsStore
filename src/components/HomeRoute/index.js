@@ -31,7 +31,7 @@ const displayLoader =  {
   loader: "LOADER",
   success: "SUCCESS",
   failure: "FAILURE",
-  initial: "INITIAL"
+  noResults: "NO-RESULTS"
 } 
 
 class HomeRoute extends Component {
@@ -93,6 +93,14 @@ class HomeRoute extends Component {
   )
   }
 
+  noResultsFunction = () => (
+    <div className="no-results-container">    
+        <img  src="https://imgs.search.brave.com/W3XPV75vG6Al-6_XlgPL8Gc9tdSOc8UdbSgC8gf_dME/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG5p/Lmljb25zY291dC5j/b20vaWxsdXN0cmF0/aW9uL3ByZW1pdW0v/dGh1bWIvZmlsZS1u/b3QtZm91bmQtaWxs/dXN0cmF0aW9uLWRv/d25sb2FkLWluLXN2/Zy1wbmctZ2lmLWZv/cm1hdHMtLWVtcHR5/LXN0YXRlLW5vLXJl/c3VsdHMtcmVzdWx0/LWVycm9yLXN0YXRl/cy1wYWNrLWRlc2ln/bi1kZXZlbG9wbWVu/dC1pbGx1c3RyYXRp/b25zLTMzNjM5MjAu/cG5nP2Y9d2VicA" alt="no results" className="no-results-image" />
+        <h1 className="no-results-heading">No Search Results Found</h1>
+        <p className="no-results-para">Try different keywords or remove search filters</p>    
+    </div>  
+  )
+
   swichFuction = () => {
     const { displayStatus } = this.state; 
     switch (displayStatus) {
@@ -102,14 +110,33 @@ class HomeRoute extends Component {
         return this.successFunction();
       case displayLoader.failure:
         return this.failureFunction();
+      case displayLoader.noResults:
+        return this.noResultsFunction();
       default:
         return null;
     }
   }
 
+    searchItemsFunction = (event) => {
+      const { carsData } = this.state;
+      console.log(event);
+      if(event === ""){
+        this.setState({ displayStatus: displayLoader.loader }, this.getCarsData);
+        return;
+      }
+      const filteredCars = carsData.filter(car =>
+        car.name.toLowerCase().includes(event.toLowerCase())
+      );  
+      if(filteredCars.length === 0){
+        this.setState({ displayStatus: displayLoader.noResults, carsData: filteredCars });
+        return;
+      } 
+      this.setState({ carsData: filteredCars });
+    }
+
   normalFunction = () => (
     <>
-    <Header />
+    <Header searchItemsFunction={this.searchItemsFunction} />
       <div className="home-container">    
           <div className="slider-main-container"> 
              <Slider {...settings} className="slider-container" dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1}>

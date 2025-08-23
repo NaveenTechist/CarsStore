@@ -28,11 +28,12 @@ nav {
     
 }
 .nav-logo {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     margin: 10px;
     margin-left: 40px;
+    margin-top: 17px;
 }
 .Link {
     text-decoration: none;
@@ -100,7 +101,7 @@ nav {
     height: 20px;
     margin-top: 22px;
     padding: 18px;
-    width: 330px;
+    width: 60%;
     border-radius: 3px;
 }
 .hamberger {
@@ -131,4 +132,8 @@ nav {
     margin-left: px;
     margin-top: -180px;
     padding-bottom: 20px;   
+}
+.search-icon {
+    fill: grey;
+    font-size: 20px;
 }

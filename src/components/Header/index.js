@@ -6,12 +6,19 @@ import Popup from 'reactjs-popup';
 import Cookies from 'js-cookie';
 import './index.css';
 import CommonContext from '../../CommonContext/common';
-const Header = () => {
+const Header = (props) => {
     const navigate = useNavigate();
     const onClickLogoutBtn = () => {
         Cookies.remove('jwt_token') 
         navigate('/login')
     }
+    const { searchItemsFunction } = props;
+
+    const onChangeInput = (event) => {  
+        const inputValue = event.target.value;
+        searchItemsFunction(inputValue);
+    }
+
     return (
         <CommonContext.Consumer>
             {value => { 
@@ -20,7 +27,7 @@ const Header = () => {
         <nav>
            <Link to='/'>  <img src="https://e7.pngegg.com/pngimages/250/321/png-clipart-bmw-logo-bmw-car-logo-bmw-logo-trademark-logo-thumbnail.png" alt="logo" className='nav-logo' /> </Link>
             <div className='search-container'>
-                <input type="search" placeholder='Search' className='search-bar' />
+                <input type="search" placeholder='Search' onChange={onChangeInput} className='search-bar' />
                 <MdSearch className='search-icon' />
             </div>
             <div className='links'>
