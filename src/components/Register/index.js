@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 // import { Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
@@ -43,7 +43,6 @@ const Register = () => {
         }
         const url = "https://carsstorebackend.onrender.com/register"
         const response = await fetch(url, options)
-        console.log(response)
         if(response.ok){
             const data = await response.json()
             loginToHomePage(data.token)
@@ -69,10 +68,12 @@ const Register = () => {
         setAge(event.target.value)
     }
 
-    const token = Cookies.get('jwt_token')
+    useEffect(() => {
+        const token = Cookies.get('jwt_token')
     if(token !== undefined){    
         navigate('/')
     }
+    }, [navigate])
 
     return(
         <div className="login-conatiner">

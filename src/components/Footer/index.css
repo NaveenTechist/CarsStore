@@ -10,3 +10,8 @@ footer {
 .container {
     color: rgb(213, 211, 211);
 }
+@meda(max-width: 768px) {
+    .footer-text{
+        font-size: 12px;
+    }
+}

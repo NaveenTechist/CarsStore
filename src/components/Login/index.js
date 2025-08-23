@@ -38,7 +38,6 @@ const Login = (props) => {
         }
         const url = "https://carsstorebackend.onrender.com/login"   
         const response = await fetch(url, options)
-        console.log(response)
         if(response.ok){
             const data = await response.json()
             loginToHomePage(data.token)

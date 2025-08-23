@@ -63,6 +63,15 @@
     object-fit: cover;
     border-radius: 4px;
 }
+.home-heading {
+    font-size: 2rem;
+    color: #0077FF;
+    margin-bottom: 10px;
+    margin-top: 60px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1s ease-out forwards;
+}
 }
 .loader-container {
     display: flex;

@@ -8,7 +8,6 @@ const CartComponent = () => {
     <CommonContext.Consumer>
         {value => { 
             const { cartList, deleteCartListItem } = value;
-            console.log(cartList);
 
             const totalFunction = () => {
                 let total = 0;
@@ -18,7 +17,6 @@ const CartComponent = () => {
                 return total;
             }
             const onClickRemoveBtn = (id) => {
-                console.log(id);
                 deleteCartListItem(id);
             }
     return (

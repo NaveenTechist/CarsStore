@@ -2,3 +2,13 @@
     height: 300px;
     width: 300px;
 }
+.no-services-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 7%;
+    align-items: center;
+}
+.services-img{
+    width: 400px;
+    height: 300px;
+}
