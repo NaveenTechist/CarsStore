@@ -38,6 +38,7 @@ class HomeRoute extends Component {
   state = {
     carsData: [],
     displayStatus: displayLoader.loader,
+    serverSleep: 'Server sleeping, wait < 10s'
   }
   componentDidMount() {
     this.getCarsData()

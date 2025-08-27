@@ -58,7 +58,10 @@ span {
     font-weight: 600;
     border: 1px solid #007bff;
 }
-
+.car-button:hover{
+    background-color: #007bff;
+    color: white;
+}
 
 .car-rating {
     color: #333;

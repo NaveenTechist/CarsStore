@@ -14,8 +14,10 @@ return(
             addCartListItem(each);
         }   
     return( 
-    <Link to={`/cars-data/${id}`} className="li-items">
+        <> 
+    <div className="li-items">
         <div>
+            <Link to={`/cars-data/${id}`}> 
             <img src={imgUrl} alt={name} className="car-image" />
             <div className="car-details">
                 <div>
@@ -24,11 +26,13 @@ return(
                 </div>
                 <p className="car-rating">{each.rating} <FaStar className="star-icon" /> </p>
             </div>
+            </Link>
             <div>
                 <button type="button" className="car-button" onClick={onClickAddCart} >Add Cart</button>
             </div>
         </div>
-    </Link>
+    </div>
+    </>
     )
     }}
     </CommonContext.Consumer>
